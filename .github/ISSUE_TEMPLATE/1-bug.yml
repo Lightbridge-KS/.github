@@ -28,7 +28,7 @@ body:
         1. ...
         2. ...
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: expected
@@ -36,19 +36,19 @@ body:
       label: Expected behavior
       description: What should have happened instead. Cite the documentation or a version that worked, if known.
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: environment
     attributes:
       label: Environment
-      description: Versions of everything involved. Write `Unknown` where not known.
+      description: Versions of everything involved.
       value: |
         - Version of this project:
         - Language / runtime version:
         - Operating system:
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: logs
