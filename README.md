@@ -26,17 +26,28 @@ file from here to any repository that has none of its own of that type.
   label missing from a repository is skipped.
 - **Blank issues stay enabled** — GitHub's default, so there is no `config.yml`.
 - **CLI and API clients bypass templates.** `gh issue create` cannot use an issue form, and
-  `gh pr create --body` applies no PR template. A tool that wants this structure reads it from
-  this repository:
+  `gh pr create --body` applies no PR template. A tool that wants this structure has to ask
+  for it, and the two kinds resolve differently:
 
-  ```sh
-  gh api 'repos/Lightbridge-KS/.github/git/trees/HEAD?recursive=1' --jq '.tree[].path'
-  gh api 'repos/Lightbridge-KS/.github/contents/.github/pull_request_template.md' \
-    -H 'Accept: application/vnd.github.raw+json'
-  ```
+  - **PR template** — ask GitHub about the *target* repository, not this one. GraphQL
+    `repository.pullRequestTemplates { filename body }` returns whichever template applies —
+    the target's own, else this default — with the body included. For a fork, query upstream:
+    a fork answers with its own owner's defaults. Worked example: the
+    [`commit-push-pr`](https://github.com/Lightbridge-KS/agent-stuff/blob/main/plugins/coding/skills/commit-push-pr/SKILL.md)
+    skill.
+  - **Issue forms** — the API does not expose forms, so read the YAML from this repository,
+    unless the target has anything in its own `.github/ISSUE_TEMPLATE/`, which replaces these
+    defaults entirely:
 
-  For an issue form, each field `label` becomes a `###` heading — the same Markdown GitHub
-  renders from a submitted form.
+    ```sh
+    gh api 'repos/Lightbridge-KS/.github/git/trees/HEAD?recursive=1' --jq '.tree[].path'
+    gh api 'repos/Lightbridge-KS/.github/contents/.github/ISSUE_TEMPLATE/1-bug.yml' \
+      -H 'Accept: application/vnd.github.raw+json'
+    ```
+
+    Each field `label` becomes a `###` heading — the same Markdown GitHub renders from a
+    submitted form. Unlike the web form, `gh issue create --label` fails on a label the
+    repository lacks.
 
 ## Editing
 
