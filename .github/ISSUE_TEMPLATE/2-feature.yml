@@ -1,0 +1,29 @@
+name: Feature request
+description: Propose a new capability or an improvement to an existing one.
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Start from the problem, not the solution — a concrete use case is the most useful part of a request.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is hard or impossible today, and who runs into it.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: The behavior, API, or UI that would solve it, as specific as possible. A sketch of the intended usage is welcome.
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other approaches or current workarounds, and why they fall short.

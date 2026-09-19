@@ -1,0 +1,20 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+      # `rust-just` is the PyPI build of `just` — one recipe for local and CI, no extra setup action.
+      - name: Schema-check issue forms and workflows
+        run: uvx --from rust-just just validate

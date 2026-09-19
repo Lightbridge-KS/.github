@@ -1,0 +1,58 @@
+name: Bug report
+description: Something behaves incorrectly — wrong output, an error, a crash, or a regression.
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this.
+
+        - **Evidence over inference.** Describe what was observed. Where something is not known, write `Unknown` rather than guessing.
+        - **This issue is public.** Remove secrets, tokens, and personal or sensitive data from code, logs, and screenshots before posting.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: The observed behavior, including the full error message if there is one. Screenshots go here.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps or code to reproduce
+      description: The smallest example that still shows the problem — a self-contained code snippet or numbered steps.
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened instead. Cite the documentation or a version that worked, if known.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Versions of everything involved. Write `Unknown` where not known.
+      value: |
+        - Version of this project:
+        - Language / runtime version:
+        - Operating system:
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Relevant log lines or console output, redacted. Rendered as a code block.
+      render: shell
