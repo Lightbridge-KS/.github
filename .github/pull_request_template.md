@@ -8,8 +8,8 @@ Write N/A under a heading that does not apply.
 -->
 
 **Intent:**
-<!-- One line: what is true after merge that is not true now. It survives a rewrite of the
-implementation; the Summary does not. Never N/A — a PR that cannot state one intent is two PRs, or none. -->
+<!-- Optional — delete the line when the title already says it. A sentence or two: what is true
+after merge that is not true now. It survives a rewrite of the implementation; the Summary does not. -->
 
 ## Summary
 
