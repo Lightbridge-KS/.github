@@ -7,6 +7,10 @@ Scale the body to the change. Link the issue this resolves with `Closes #N`.
 Write N/A under a heading that does not apply.
 -->
 
+**Intent:**
+<!-- One line: what is true after merge that is not true now. It survives a rewrite of the
+implementation; the Summary does not. Never N/A — a PR that cannot state one intent is two PRs, or none. -->
+
 ## Summary
 
 -
