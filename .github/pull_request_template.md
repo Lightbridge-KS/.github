@@ -7,9 +7,9 @@ Scale the body to the change. Link the issue this resolves with `Closes #N`.
 Write N/A under a heading that does not apply.
 -->
 
-**Intent:**
+> **Intent:**
 <!-- Optional — delete the line when the title already says it. A sentence or two: what is true
-after merge that is not true now. It survives a rewrite of the implementation; the Summary does not. -->
+after merge that is not true now. -->
 
 ## Summary
 
