@@ -33,7 +33,7 @@ file from here to any repository that has none of its own of that type.
     `repository.pullRequestTemplates { filename body }` returns whichever template applies —
     the target's own, else this default — with the body included. For a fork, query upstream:
     a fork answers with its own owner's defaults. Worked example: the
-    [`commit-push-pr`](https://github.com/Lightbridge-KS/agent-stuff/blob/main/plugins/coding/skills/commit-push-pr/SKILL.md)
+    [`pr`](https://github.com/Lightbridge-KS/agent-stuff/blob/main/plugins/coding/skills/pr/SKILL.md)
     skill.
   - **Issue forms** — the API does not expose forms, so read the YAML from this repository,
     unless the target has anything in its own `.github/ISSUE_TEMPLATE/`, which replaces these
